@@ -373,3 +373,5 @@ Advantages of XGBoost:
 Sigmoid for binary
 softmax for multi class
 diff bw Bagging and boosting(imp)
+
+XGBoost
