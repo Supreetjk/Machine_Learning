@@ -190,7 +190,7 @@ how well the model captures the pattern of unseen data then the model is general
 if model fails to captures unseen data pattern then the model is not generalized well(overfit)
 solution:regularization
 
-----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 classification matrics:
 1)confussion matrix
 2)precision score
@@ -323,7 +323,7 @@ preprocessing = ColumnTransformer(
     ('poly','PolynomialFeatures()')]),num_cols),                                                                     
         ('encoder',OneHotEncoder(handle_unknown='ignore'),cat_cols)                                    
     ])
----------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------
 Ensamble
 1)Bagging
 2)Boosting
@@ -374,4 +374,19 @@ Sigmoid for binary
 softmax for multi class
 diff bw Bagging and boosting(imp)
 
-XGBoost
+----------------------------------------------------------------------------------------------------
+KNN(K Nearest Neighbour)
+it is supervised algorithm which is use for both classification algorithm
+it uses distance formula to predicts the output
+it uses 2 distance formula such as Euclidean, Manhattan
+it is lazy algorithm, during model training just choose the data
+Euclidean formula = sqrt((x2-x1)^2 + (y2-y1)^2)
+feature1   |   feature2    |   Target
+1          |     100       |    100
+7          |      50       |    200
+15         |      25       |    300
+8          |      25       |    400
+9          |      10       |    500
+Euclidean for rows = 30,27,50
+if the data is complex and high dimension then we use manhattan
+Manhattan formula = |x2-x2|+|y2-y1|
