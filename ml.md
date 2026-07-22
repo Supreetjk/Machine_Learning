@@ -17,7 +17,6 @@ variance->Squared units of target column X or y
 Stadard deviation -> actual unit of X or Y
 
 
-
 Non Linear regression
 it learns pattern from unlabelled data
 How to handle non linear data?
@@ -390,3 +389,60 @@ feature1   |   feature2    |   Target
 Euclidean for rows = 30,27,50
 if the data is complex and high dimension then we use manhattan
 Manhattan formula = |x2-x2|+|y2-y1|
+----------------------------------------------------------------------------------------------------
+Grid Search CV 
+it is hyper parameter unique technique which balances both bias and variance by selecting the best parameter values
+syntax:
+from sklearn.model_selection import GridSearchCV
+gridsearchcv=GridSearchCV(
+  estimator=DecissionTreeClassifier()/pipeline
+  cv=3|5|10
+  parameter_grid={
+    'parameter_name':[value1,value2.......],
+    'parameter_value':[value1,value2.........]
+  }
+  n_jobs=1,2,3,4.........
+  verboise=0,1,2,3,4.......
+  score="r2"|"f1"|"accuracy"
+)
+
+scenario-1:
+grid_search_cv=GridSearchCV(
+  estimator=DecissionTreeClassifier(),
+  param_grid={max_depth:[None,10,50,100],
+            criterian:['gini','entropy']}
+  cv=5)
+grid_search_cv.fit(xtrain,ytrain)
+
+scenario-2:
+pipeline=Pipeline(
+    steps=[
+        ('preprocessing',preprocessing),
+        ('model',DecisionTreeClassifier())
+    ]
+)
+grid_search_cv=GridSearchCV(
+  estimator=pipeline,
+  param_grid={model__max_depth:[None,10,50,100]}
+  cv=5)
+grid_search_cv.fit(xtrain,ytrain)
+
+5-Folds (equally Split)
+Parameter Combinations & Results:
+1) None, gini \implies \begin{cases} CV1 \implies 90\% \\ CV2 \implies 80\% \\ CV3 \implies 75\% \\ CV4 \implies 70\% \\ CV5 \implies 90\% \end{cases} \implies 81\% \ 6
+2) None, entropy
+3) 10, gini \implies 87\% \ 5
+4) 10, entropy \implies 95\% \ 2
+5) 50, gini \implies 90\% \ 4
+6) 50, entropy \implies 71\% \ 7
+7) 100, gini \implies 95.7\% \ 1
+8) 100, entropy \implies 91\% \ 3
+
+n_jobs=-1,1,2,3,4 ->it can used for getting the information from gridsearchcv
+verbouse=0 -> nothing
+verbouse=1 -> some information
+verbouse=2 -> more information
+
+import OS
+print(Os.cpu_count())
+
