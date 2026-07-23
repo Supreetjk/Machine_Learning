@@ -438,11 +438,17 @@ Parameter Combinations & Results:
 7) 100, gini \implies 95.7\% \ 1
 8) 100, entropy \implies 91\% \ 3
 
-n_jobs=-1,1,2,3,4 ->it can used for getting the information from gridsearchcv
+n_jobs=-1,1,2,3,4 
+verbouse->it can used for getting the information from gridsearchcv
 verbouse=0 -> nothing
 verbouse=1 -> some information
 verbouse=2 -> more information
+cv5 -> default
+cv3 -> large dataset
+cv10 -> smaller dataset
 
 import OS
 print(Os.cpu_count())
-
+----------------------------------------------------------------------------------------------------
+bias variance trade-off
+it means how we are balancing bias and variance
