@@ -452,3 +452,74 @@ print(Os.cpu_count())
 ----------------------------------------------------------------------------------------------------
 bias variance trade-off
 it means how we are balancing bias and variance
+
+syntax:
+from sklearn.svm import SVC
+
+Disadvantage:-
+ * It will not perform for complex data (1,00,000 - 5,00,000)
+ * 3-4 days to train the model
+
+
+Vectorization:-
+ * It is an ML preprocessing technique, which converts sentence-based columns into numerical columns.
+Eg:
+ * We use this in sentiment analysis.
+ * Movie reviews analysis.
+ * Spam detection.
+2 types:
+ * Count vectorizer
+ * TF-IDF vectorizer (Term frequency-Inverse Document frequency).
+1) Count vectorizer:-
+ * It is a vectorization preprocessing technique, which converts sentence into numbers by using word frequency.
+Movie Review:
+ * Movie was awesome, but the climax was worst.
+ * Beginning movie was very interesting, in the end it was not.
+ * Superb movie, love to watch again.
+ * Climax was awesome, didn't expected.
+How count vectorizer works?
+1) Collects all unique values (words)
+ * Movie, was, awesome, but, the, climax, worst
+ * Beginning, movie, was, very, interesting
+2) Arranges in alphabetical order
+ * awesome, but, climax, the, movie, was, worst
+ * Beginning, interesting, movie, very, was
+3) It creates new columns based on alphabetical order words
+| awesome | but | climax | the | movie | was | worst | Beginning | interesting |
+|---|---|---|---|---|---|---|---|---|
+| 1 | 1 | 1 | 1 | 1 | 2 | 1 | 0 | 0 |
+| 0 | 0 | 0 | 1 | 1 | 2 | 0 | 1 | 1 |
+4) Step 4 is transforming the values
+Perfect examples:
+ * Movie was so good
+ * worst movie & boring climax
+ * first half is good
+Step 01:
+ * Movie, was, so, good, worst, and, boring, climax, first, half, is
+Step 02:
+ * and, boring, climax, ...
+Step 03:
+| # | and | boring | climax | . . . |
+|---|---|---|---|---|
+| ① | 0 | 0 | 0 |  |
+| ② | 1 | 1 | 1 |  |
+| ③ | 0 | 0 | 0 |  |
+ * We use this for small projects, not for real-time projects. It just checks the count, it is not assigning meaning/value.
+ * It returns only word frequencies.
+Syntax:
+from sklearn.feature_extraction.text import CountVectorizer
+
+ * It accepts only one column to transform the values.
+ * If we pass two or more columns, it throws errors.
+vectorizer = CountVectorizer()
+vectorizer.fit_transform(xtrain['Review'])       # Correct
+vectorizer.fit_transform(xtrain[['Review']])     # Error [ [ ' ' ] ]
+
+2) TF-IDF vectorizer:-
+it is a vectorization processing technique, which convert sentence based into numbers by using word frequency based on the TF-IDF
+ * It stands for Term frequency-Inverse document frequency.
+ syntax:
+ from sklearn.feature_extraction.text import TFIDFVectorizer
+ TERM FREQUENCY=TF*IDF
+ TF=how many times word present/total words in a document(row)
+ IDF=log(N(nrows)/how many times word present in a entire document)
