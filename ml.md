@@ -523,3 +523,21 @@ it is a vectorization processing technique, which convert sentence based into nu
  TERM FREQUENCY=TF*IDF
  TF=how many times word present/total words in a document(row)
  IDF=log(N(nrows)/how many times word present in a entire document)
+
+ NAVIE BAYERS
+ what is navie bayers?
+ it is a supervised learning algorithm which is use for classification scenariosa and it uses probability to predict the class labels based on highest possibilities
+
+ where we use this in real time projects?
+ sentiment analysis, medical diagnosis
+
+ NAVIE BAYERS has 3 algorithms
+ 1. Bernouli Navie Bayers
+ * when feature values are binary
+ 2. Gaussian Navie Bayers
+ * when feature colums are contineous values
+ ex: medical dataset
+ 3. Multinomial Navie Bayers
+ * used for sentence based classification
+ syntax:
+ from sklearn.navie_bayer import BernouliNB,GaussianNB,MultinomialNB
