@@ -541,3 +541,48 @@ it is a vectorization processing technique, which convert sentence based into nu
  * used for sentence based classification
  syntax:
  from sklearn.navie_bayer import BernouliNB,GaussianNB,MultinomialNB
+
+
+ IMPUTATION
+ it is a preprocessing technique which handles missing values with the help of stratergy parameter
+ SimpleImputer(stratergy,fill-value)
+ stratergy=mean|median|most-frequent|constant
+ * mean|median -->used for numerical
+ * most-frequent|constant --> used for categorical/numerical
+ fill_value=0/unknown
+ syntax:
+ from sklearn.impute import SimpleImpute
+ imputer=SimpleImputer(stratergy='constant',fill_value=0/unknown)
+ imputer=SimpleImputer(stratergy='mean')
+ imputer.fit_transform(xtrain)
+
+
+ KMeans Clustering
+ it is an unsupervised learning algorithm which comes under clustering technique and it groups the similar pattern by using Euclidean distance formula
+ k -> no of clusters
+ means -> average
+ using lbow method we find the best k value
+ Age  |  Sal
+ 21   | 7000
+ 25   | 26000
+ 30   | 25000
+ 35   | 50000
+ 50   | 100000
+ step 1: randomly select's the centroid
+ c1 -> 25,26000
+ c2 -> 35,50000
+step 2: used Euclidean formula find the distance
+    c1      |    c2
+  (21,7000) |  (35,50000)
+  (25,26000)|  (50,100000)
+  (30,25000)
+
+by using mean find the new centroid
+new centroid for c1:(19,19333.33)
+new centroid for c2:(425,75000)
+
+syntax:
+from sklearn.cluster import Kmeans
+cluster=KMeans(n_cluster=2)
+cluster.fit_predict(df)
+
