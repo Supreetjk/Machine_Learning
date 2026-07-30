@@ -582,7 +582,11 @@ new centroid for c1:(19,19333.33)
 new centroid for c2:(425,75000)
 
 syntax:
+<<<<<<< HEAD
 from sklearn.cluster import KMeans
+=======
+from sklearn.cluster import Kmeans
+>>>>>>> 3c68bb87fe7f2e7b98776a54f6c5cf945b41e28f
 cluster=KMeans(n_cluster=2)
 cluster.fit_predict(df)
 
