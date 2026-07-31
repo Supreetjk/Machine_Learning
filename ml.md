@@ -582,11 +582,37 @@ new centroid for c1:(19,19333.33)
 new centroid for c2:(425,75000)
 
 syntax:
-<<<<<<< HEAD
-from sklearn.cluster import KMeans
-=======
 from sklearn.cluster import Kmeans
->>>>>>> 3c68bb87fe7f2e7b98776a54f6c5cf945b41e28f
 cluster=KMeans(n_cluster=2)
 cluster.fit_predict(df)
 
+
+PCA
+it is a preprocessing technique which comes under dimensionality reduction it reduces the dimension by using variance 
+we use this for 2 scenarios
+scenario 1: preprocessing technique
+scenario 2: 2D visualization
+syntax:
+from sklearn.decomposition import PCA
+used:
+transform
+fit_transform
+
+it is not removing the features
+it create new features based on n_components and variance
+
+when to use pca?
+when multicolinearity problem occurs
+when model becomes overfit(high variance) and it reduces the complexity
+2D visuals(plotting cluster values or labels)
+when we have more dimensions(more features)
+along with scaling technique we use pca for distance based algorithm
+
+when not to use pca?
+for categorical columns after encoding
+
+interview questions
+Explain decomposition?
+Explain dimensionality reduction?
+Why pca?
+Explain n_components in pca?
