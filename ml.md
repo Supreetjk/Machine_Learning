@@ -616,3 +616,71 @@ Explain decomposition?
 Explain dimensionality reduction?
 Why pca?
 Explain n_components in pca?
+
+Under sampling, Over sampling
+imbalanced dataset?
+how to find?
+by using value_counts()
+
+how to balance?
+LogisticRegression(class_weights='balanced')
+SVC(class_weights='balanced')
+
+what is resampling technique?
+it is a preprocessing technique by adding or removing the samples it balances the data and we use this only for trained data
+
+Under sampling:
+it is resampling preprocessing technique and it removes the samples randomly from majority class labels to balance the dataset
+UnderSampling(sampling_stratergy='float')
+sampling_stratergy=0.2
+Minority samples/Majority samples=0.2
+0.2-->500
+0.5-->200
+if we increases the sampling stratergy decrese the sample values
+always use smapling stratergy below 0.5
+syntax:
+pip install imbalanced_learn
+from imblearn.underSampling import RandomUnderSampler
+sampling=RandomSampler(sampling_stratergy='float',random_state=42)
+Sampling.fit_resample(xtrain,ytrain)
+ex:
+before sampling                          after sampling
+700 - 0      --------------------------->    300
+300 - 1      --------------------------->    300
+
+over sampling:
+it is resampling preprocessing technique and it adds the samples to the minority class labels to balance dataset using SMOTE
+SMOTE--Synthetic Minority Over Sampling Technique
+internally it used KNN(distance formula)
+syntax:
+pip install imbalanced_learn
+from imblearn.overSampling import SMOTE
+sampling=RandomSampler(sampling_stratergy='float',random_state=42)
+Sampling.fit_resample(xtrain,ytrain)
+sampling=SMOTE()
+ex:
+                     undersampling       oversampling
+100000 - 0  ---->      20000                 200000
+100    - 1  ---->      100                   200000
+
+Anomoly Detection:(unusual pattern) data points which are away from the actual data poits/normal data
+Isolation forest: it is unsupervised algorithmswhich comes under ensemble technique and isolate tha anomloy data using multiple 100 decision trees
+
+how to detect anaomoly?
+we can detect anomoly by using isolation forest
+
+syntax:
+from sklearn.ensemble import IsolationForest
+anamoly=IsolationForest(random_state=42,contamination'float)
+anomoly.fit(df)
+anomoly.predict(df)
+anaomoly.fit_predict(df)
+ex:
+fraud detection
+
+when we have more features use scaling,PCA and isolation,before pca use standard scalar
+
+
+sentence base
+clustering
+regression
