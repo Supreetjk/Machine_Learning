@@ -594,6 +594,7 @@ scenario 1: preprocessing technique
 scenario 2: 2D visualization
 syntax:
 from sklearn.decomposition import PCA
+n_compoments=''(0.9-0.099)
 used:
 transform
 fit_transform
@@ -602,11 +603,12 @@ it is not removing the features
 it create new features based on n_components and variance
 
 when to use pca?
-when multicolinearity problem occurs
+when multicolinearity problem occurs(overfit)
 when model becomes overfit(high variance) and it reduces the complexity
 2D visuals(plotting cluster values or labels)
 when we have more dimensions(more features)
 along with scaling technique we use pca for distance based algorithm
+use this before KNN,logistic,Kmeans,SVM
 
 when not to use pca?
 for categorical columns after encoding
